@@ -7,7 +7,7 @@ st.title("🧩 25 Days of Special Puzzles")
 
 # --- SETTINGS ---
 # Jis date se game shuru karni hai
-START_DATE = date(2026, 5, 1) 
+START_DATE = date(2026, 4, 30) 
 
 today = date.today()
 delta = today - START_DATE
