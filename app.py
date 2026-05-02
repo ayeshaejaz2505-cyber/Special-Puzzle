@@ -6,14 +6,28 @@ st.set_page_config(page_title="25 Days Puzzle", page_icon="✨")
 st.title("🧩 25 Days of Special Puzzles")
 
 # --- SETTINGS ---
-# Jis date se game shuru karni hai
+# Testing ke liye date 2026, 4, 30 rakhi hai taake Day 3 khul jaye
 START_DATE = date(2026, 4, 30) 
 
 today = date.today()
 delta = today - START_DATE
 days_passed = delta.days + 1
 
-st.write(f"### Aaj hamara *Day {max(0, days_passed)}* hai!")
+st.write(f"### Aaj hamara Day {max(0, days_passed)} hai!")
+
+# Custom Styling for Promises
+st.markdown("""
+    <style>
+    .promise-card {
+        background-color: #fff0f0;
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 5px solid #ff4b4b;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
 # Grid system for 25 days
 for row in range(5):
@@ -27,13 +41,13 @@ for row in range(5):
                 
                 # Jab Button click ho jaye
                 if st.session_state.get("active_day") == day_num:
+                    st.markdown("---")
+                    
                     # --- DAY 1 ---
                     if day_num == 1:
                         st.balloons()
                         answer = st.text_input("Hamari pehli mulaqat kahan hui thi?", key="q1")
-                        
                         if answer.lower() == "homescapes":
-                            st.markdown("---")
                             st.subheader("✨ Day 1 Surprise ✨")
                             st.write("Aj day one ha to is Lia aj ka surprise ya ha:")
                             st.write("### 5 reasons Why are you number 1 for me")
@@ -45,19 +59,42 @@ for row in range(5):
                         elif answer:
                             st.error("Galat jawab! Thora aur sochein... 😉")
 
-                    # --- DAY 2 (NEW ADDED) ---
+                    # --- DAY 2 ---
                     elif day_num == 2:
                         st.subheader("🎵 Day 2: Ek Khaas Sawal")
                         ans2 = st.text_input("Ma ap k Lia kaya hon?", key="q2")
-                        
                         if ans2.lower() == "jaanyman":
                             st.balloons()
                             st.success("Sahi jawab! ❤️ Ye song ap k liye:")
-                            # YouTube link directly embed kar diya hai
                             st.video("https://youtu.be/kv_5z2ROptE?si=Yu_8uhoqyAwJfPLe")
                             st.write("Isay sun kar batana kaisa laga! ✨")
                         elif ans2:
                             st.error("Nahi... Kuch aur kehti hain ap mujhe! 😉")
+
+                    # --- DAY 3 (NEW ADDED) ---
+                    elif day_num == 3:
+                        st.subheader("💍 Day 3: Dil ki Baat")
+                        ans3 = st.text_input("Mujay ap ki konsi cheez bohat passand ha?", key="q3")
+                        if ans3.lower() == "smile":
+                            st.balloons()
+                            st.markdown("### ❤️ Aaj ke 3 Promises")
+                            
+                            st.markdown("""
+                                <div class='promise-card'>
+                                    <b>Waada 1:</b><br>
+                                    Ma vada Karti hon zindagi k har mushkil vakat ma ap ka sath don gi.
+                                </div>
+                                <div class='promise-card'>
+                                    <b>Waada 2:</b><br>
+                                    Ma vada Karti hon ab jab b thak kar Ghar vapis ain to ma ap k muskranay ki vaja bano, ap ka sakoon bano.
+                                </div>
+                                <div class='promise-card'>
+                                    <b>Waada 3:</b><br>
+                                    Ma vada Karti hon k hum mil kar apni zindagi Islam k asolon k mutabik guzarain gay aur mil kar apnay Rab sa duain mangay gain.
+                                </div>
+                            """, unsafe_allow_html=True)
+                        elif ans3:
+                            st.error("Sochein... jo dekh kar mera din ban jata hai! 😊")
 
                     else:
                         st.write(f"Day {day_num} ka surprise abhi raaz hai!")
