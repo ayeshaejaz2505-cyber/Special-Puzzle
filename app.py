@@ -7,7 +7,7 @@ st.title("🧩 25 Days of Special Puzzles")
 
 # --- SETTINGS ---
 # Testing ke liye date 2026, 4, 30 rakhi hai taake Day 3 khul jaye
-START_DATE = date(2026, 4, 30) 
+START_DATE = date(2026, 5, 1) 
 
 today = date.today()
 delta = today - START_DATE
