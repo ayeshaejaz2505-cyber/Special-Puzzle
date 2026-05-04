@@ -6,13 +6,11 @@ st.set_page_config(page_title="25 Days Puzzle", page_icon="✨")
 st.title("🧩 25 Days of Special Puzzles")
 
 # --- HEART EFFECT CSS ---
-# Ye CSS snowflakes ko hearts mein badal degi
 st.markdown("""
     <style>
     .stSnow {
         display: none;
     }
-    /* Snowflakes ko hearts se replace karne ka trick */
     [data-testid="stSnow"]::before {
         content: "❤️";
         font-size: 25px;
@@ -72,7 +70,8 @@ for row in range(5):
                             st.markdown("<div class='promise-card'><b>Waada 1:</b> Ma vada Karti hon zindagi k har mushkil vakat ma ap ka sath don gi.</div>", unsafe_allow_html=True)
                             st.markdown("<div class='promise-card'><b>Waada 2:</b> Ma vada Karti hon... ap ka sakoon bano.</div>", unsafe_allow_html=True)
                             st.markdown("<div class='promise-card'><b>Waada 3:</b> Ma vada Karti hon k hum mil kar apni zindagi Islam k asolon k mutabik guzarain gay.</div>", unsafe_allow_html=True)
-                                                elif day_num == 4:
+
+                    elif day_num == 4:
                         ans4 = st.text_input("Ap ko sab sa ziada kaya passand ha?", key="q4")
                         if ans4.strip():
                             if ans4.lower() == "biryani":
@@ -109,13 +108,11 @@ for row in range(5):
                                 st.error("Nahi! Socho wo konsi cheez hai jis ka 'nal' hamesha khula rehta hai? 😂")
 
                     else:
-                        # Ye un dino ke liye hai jin ka code abhi aap ne nahi likha
                         st.info(f"Day {day_num} ka surprise abhi raaz hai! Intezar karen... 🤫")
             else:
-                # Agar aaj ki date us day se pehle ki hai, to button disabled dikhao
                 st.button(f"Day {day_num} 🔒", disabled=True, key=f"lock_{day_num}")
 
 # Footer section
 st.markdown("---")
 st.caption("Custom built with ❤️ for someone special")
-                    
+                            
