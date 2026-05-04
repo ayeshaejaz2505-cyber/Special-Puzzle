@@ -72,40 +72,50 @@ for row in range(5):
                             st.markdown("<div class='promise-card'><b>Waada 1:</b> Ma vada Karti hon zindagi k har mushkil vakat ma ap ka sath don gi.</div>", unsafe_allow_html=True)
                             st.markdown("<div class='promise-card'><b>Waada 2:</b> Ma vada Karti hon... ap ka sakoon bano.</div>", unsafe_allow_html=True)
                             st.markdown("<div class='promise-card'><b>Waada 3:</b> Ma vada Karti hon k hum mil kar apni zindagi Islam k asolon k mutabik guzarain gay.</div>", unsafe_allow_html=True)
-
-                    elif day_num == 4:
+                                                elif day_num == 4:
                         ans4 = st.text_input("Ap ko sab sa ziada kaya passand ha?", key="q4")
-                        if ans4.lower() == "biryani":
-                            st.snow()
-                            st.markdown("<div class='tease-card'><b>Hahaha! Mujay pata tha ap ko muj sa ziada biryani hi passand ha... 😒</b><br><br>1️⃣ Biryani 🍗<br>2️⃣ Apka dost Ahmad 👬<br>3️⃣ Shayad Main... 🥺</div>", unsafe_allow_html=True)
+                        if ans4.strip():
+                            if ans4.lower() == "biryani":
+                                st.snow()
+                                st.markdown("<div class='tease-card'><b>Hahaha! Mujay pata tha ap ko muj sa ziada biryani hi passand ha... 😒</b><br><br>1️⃣ Biryani 🍗<br>2️⃣ Apka dost Ahmad 👬<br>3️⃣ Shayad Main... 🥺</div>", unsafe_allow_html=True)
+                            else:
+                                st.error("Ab har dafa ma nahi ho sakti, koi Khanay vali cheez sochain! 🙄")
 
                     elif day_num == 5:
                         ans5 = st.text_input("Mera 1st name kya tha?", key="q5")
-                        if ans5.lower() == "mala":
-                            st.snow()
-                            st.markdown("<div class='heart-card'>'Mala' sa 'Jaan' tak ka safar bohat mazay ka tha... ❤️</div>", unsafe_allow_html=True)
+                        if ans5.strip():
+                            if ans5.lower() == "mala":
+                                st.snow()
+                                st.markdown("<div class='heart-card'><b>'Mala' sa 'Jaan' tak ka safar bohat mazay ka tha... ❤️</b><br><br>Shukria zindagi ma anay ka or maray Lia sab sa bahtreen insan banany ka! ✨</div>", unsafe_allow_html=True)
+                            else:
+                                st.warning("Itni jaldi bhool gaye? Thora dimaagh par zor dein! 🧐")
 
                     elif day_num == 6:
                         st.subheader("😭 Day 6: Mera 'Favourite' Kaam")
                         ans6 = st.text_input("Mera wo konsa 'favourite' kaam hai jo main bohat shauq se karti hoon?", key="q6")
-                        if ans6.lower() == "rona":
-                            st.snow()
-                            st.markdown(f"""
-                                <div class='ask-card'>
-                                    <b>Hahaha! Bilkul sahi pehchana! 😂</b><br><br>
-                                    Pata hai main kyun roti hoon? Kyunke kabhi kabhi baatein lafzon mein nahi kahi jati...<br><br>
-                                    <b>Surprise Challenge:</b> Aaj main aapko ek 'Secret Truth' batane ka mauka de rahi hoon. Hamari poori journey mein koi ek aisi baat ya sawal jo aapke dil mein hamesha raha par aap ne kabhi mujh se nahi poocha...<br><br>
-                                    <b>Aaj wo ek baat aap mujh se WhatsApp par poochenge.</b> Main waada karti hoon ke aaj main gussa nahi karungi, sirf sach bolungi. ✨<br><br>
-                                    <i>Main intezar kar rahi hoon... Shuru ho jayein!</i>
-                                </div>
-                            """, unsafe_allow_html=True)
-                        elif ans6:
-                            st.error("Nahi! Socho wo konsi cheez hai jis ka 'nal' hamesha khula rehta hai? 😂")
+                        if ans6.strip():
+                            if ans6.lower() == "rona":
+                                st.snow()
+                                st.markdown(f"""
+                                    <div class='ask-card'>
+                                        <b>Hahaha! Bilkul sahi pehchana! 😂</b><br><br>
+                                        Pata hai main kyun roti hoon? Kyunke kabhi kabhi baatein lafzon mein nahi kahi jati...<br><br>
+                                        <b>Surprise Challenge:</b> Aaj main aapko ek 'Secret Truth' batane ka mauka de rahi hoon. Hamari poori journey mein koi ek aisi baat ya sawal jo aapke dil mein hamesha raha par aap ne kabhi mujh se nahi poocha...<br><br>
+                                        <b>Aaj wo ek baat aap mujh se WhatsApp par poochenge.</b> Main waada karti hoon ke aaj main gussa nahi karungi, sirf sach bolungi. ✨<br><br>
+                                        <i>Main intezar kar rahi hoon... Shuru ho jayein!</i>
+                                    </div>
+                                """, unsafe_allow_html=True)
+                            else:
+                                st.error("Nahi! Socho wo konsi cheez hai jis ka 'nal' hamesha khula rehta hai? 😂")
 
                     else:
-                        st.write(f"Day {day_num} ka surprise abhi raaz hai!")
+                        # Ye un dino ke liye hai jin ka code abhi aap ne nahi likha
+                        st.info(f"Day {day_num} ka surprise abhi raaz hai! Intezar karen... 🤫")
             else:
+                # Agar aaj ki date us day se pehle ki hai, to button disabled dikhao
                 st.button(f"Day {day_num} 🔒", disabled=True, key=f"lock_{day_num}")
 
+# Footer section
 st.markdown("---")
 st.caption("Custom built with ❤️ for someone special")
+                    
